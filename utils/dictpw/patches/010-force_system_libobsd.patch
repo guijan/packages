@@ -1,0 +1,13 @@
+Index: dictpw-1.2.0/meson.build
+===================================================================
+--- dictpw-1.2.0.orig/meson.build
++++ dictpw-1.2.0/meson.build
+@@ -39,7 +39,7 @@ funcs = {
+ libbsd_dep = dependency('', required: false)
+ foreach func, header : funcs
+   if not cc.has_function(func, prefix: header, args: args)
+-    libbsd_dep = dependency('libbsd-overlay')
++    libbsd_dep = dependency('libobsd', allow_fallback: false)
+     break
+   endif
+ endforeach
